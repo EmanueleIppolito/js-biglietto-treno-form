@@ -41,6 +41,7 @@ const outputFullNameEl = document.getElementById('outputFullName');
 const outputKmCounterEl = document.getElementById('outputKmCounter');
 const outputPassengerAgeEl = document.getElementById('outputPassengerAge');
 const outputPriceEl = document.getElementById('outputPrice');
+const outputCardEl = document.getElementById('outputCard');
 
 
 ticketEl.addEventListener ('submit', (e)=>{
@@ -60,9 +61,10 @@ ticketEl.addEventListener ('submit', (e)=>{
     else if (Number(passengerAgeEl.value) > 65){
         price = (price * 40 / 100);
     }
-    outputFullNameEl.textContent = `Nome Completo: ${fullNameEl.value}`;
+    outputFullNameEl.textContent = `Nome del Passeggero: ${fullNameEl.value}`;
     outputKmCounterEl.textContent = `Kilometri da percorrere: ${kmCounterEl.value}`;
     outputPassengerAgeEl.textContent = `Età del passeggero: ${passengerAgeEl.value}`;
     outputPriceEl.textContent = `Prezzo del biglietto: €${price.toFixed(2)}`;
+    outputCardEl.classList.remove("d-none");
 })
 

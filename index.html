@@ -5,26 +5,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biglietto del treno Form</title>
-</head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
 
-<body>
-    <div>
-        <form id="ticket">
-            <input id="fullName" type="text" required placeholder="Nome Completo" pattern="[A-Za-zÀ-ÿ\s]+">
-            <input id="kmCounter" type="number" required placeholder="Kilometri da Percorrere">
-            <input id="passengerAge" type="number" required placeholder="Età del passeggero">
-            <button id="submit" type="submit">Calcola il prezzo</button>
+<body class="bg-dark">
+    <div class="card m-5 bg-primary bg-opacity-50">
+        <h5 class="card-title ms-4 mt-4 text-warning">Calcola il prezzo del tuo biglietto</h5>
+        <form id="ticket" class="container mt-4">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <label for="fullName" class="form-label text-warning">Nome Completo</label>
+                    <input id="fullName" type="text" class="form-control" required placeholder="Nome Completo"
+                        pattern="[A-Za-zÀ-ÿ\s]+">
+                </div>
+
+                <div class="col-md-4">
+                    <label for="kmCounter" class="form-label text-warning">Kilometri da percorrere</label text-warning>
+                    <input id="kmCounter" type="number" class="form-control" required
+                        placeholder="Kilometri da Percorrere">
+                </div>
+
+                <div class="col-md-4">
+                    <label for="passengerAge" class="form-label text-warning">Quanti anni hai?</label>
+                    <input id="passengerAge" type="number" class="form-control" required
+                        placeholder="Età del passeggero">
+                </div>
+
+                <div class="col-12">
+                    <button id="submit" class="btn btn-success mb-4" type="submit">Calcola il prezzo</button>
+                </div>
+            </div>
         </form>
     </div>
 
-    <div id="output">
-        <p id="outputFullName"></p>
-        <p id="outputKmCounter"></p>
-        <p id="outputPassengerAge"></p>
-        <p id="outputPrice"></p>
+    <div class="card m-5 bg-primary bg-opacity-50 d-none" id="outputCard">
+        <div class="card-body">
+            <h5 class="card-title text-warning">Dettagli del Biglietto</h5>
+            <div id="output" class="d-flex flex-wrap gap-4 ">
+                <p id="outputFullName" class="card-text text-light"></p>
+                <p id="outputKmCounter" class="card-text text-light"></p>
+                <p id="outputPassengerAge" class="card-text text-light"></p>
+                <p id="outputPrice" class="card-text fw-bold text-warning"></p>
+            </div>
+        </div>
     </div>
 
 
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
     <script src="./main.js"></script>
 </body>
 
