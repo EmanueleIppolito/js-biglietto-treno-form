@@ -2,7 +2,8 @@
 Scrivere un programma che chieda all’utente:
 Il numero di chilometri da percorrere
 Età del passeggero
-Sulla base di queste informazioni dovrà calcolare il prezzo totale del biglietto di viaggio, secondo le seguenti regole:
+Sulla base di queste informazioni dovrà calcolare il prezzo totale del biglietto di viaggio,
+ secondo le seguenti regole:
 il prezzo del biglietto è definito in base ai km (0.21 € al km)
 va applicato uno sconto del 20% per i minorenni
 va applicato uno sconto del 40% per gli over 65.
@@ -27,4 +28,27 @@ Se non vi sentite particolarmente creativi, questa potrebbe essere un’implemen
 Potete scegliere di implementare una soluzione completamente diversa oppure simile, ma in ogni caso cercate di farla vostra.
 */
 
-document.writeln(Prova);
+const fullNameEl = document.getElementById('fullName');
+//console.log(fullNameEl);
+const kmCounterEl = document.getElementById('kmCounter');
+//console.log(kmCounterEl);
+const submitEl = document.getElementById('submit');
+//console.log(submitEl);
+const passengerAgeEl = document.getElementById('passengerAge');
+//console.log(passengerAgeEl);
+let price = 0.21 * Number(kmCounterEl.value);
+
+submitEl.addEventListener ('click', () =>{
+    console.log(`Nome Completo: ${fullNameEl.value}`);
+    console.log(`Kilometri da percorrere: ${kmCounterEl.value}`);
+    console.log(`Età del passeggero: ${passengerAgeEl.value}`);
+    let price = 0.21 * Number(kmCounterEl.value);
+    if(Number(passengerAgeEl.value) < 18){
+        price = price - (price * 20 / 100);   
+    }
+    else if (Number(passengerAgeEl.value) > 65){
+        price = (price * 40 / 100);
+    }
+     console.log(`Prezzo del biglietto: €${price.toFixed(2)}`);
+})
+
