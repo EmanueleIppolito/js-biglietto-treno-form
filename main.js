@@ -36,19 +36,33 @@ const submitEl = document.getElementById('submit');
 //console.log(submitEl);
 const passengerAgeEl = document.getElementById('passengerAge');
 //console.log(passengerAgeEl);
-let price = 0.21 * Number(kmCounterEl.value);
+const ticketEl = document.getElementById('ticket');
+const outputFullNameEl = document.getElementById('outputFullName');
+const outputKmCounterEl = document.getElementById('outputKmCounter');
+const outputPassengerAgeEl = document.getElementById('outputPassengerAge');
+const outputPriceEl = document.getElementById('outputPrice');
 
-submitEl.addEventListener ('click', () =>{
-    console.log(`Nome Completo: ${fullNameEl.value}`);
-    console.log(`Kilometri da percorrere: ${kmCounterEl.value}`);
-    console.log(`Età del passeggero: ${passengerAgeEl.value}`);
+
+ticketEl.addEventListener ('submit', (e)=>{
+    e.preventDefault();
+
+    if (!fullNameEl.value || isNaN(kmCounterEl.value) || kmCounterEl.value <= 0 || isNaN(passengerAgeEl.value) || passengerAgeEl.value <= 0) {
+        console.log("⚠️ Inserisci valori validi in tutti i campi.");
+        return;
+    }
+
     let price = 0.21 * Number(kmCounterEl.value);
+
+
     if(Number(passengerAgeEl.value) < 18){
         price = price - (price * 20 / 100);   
     }
     else if (Number(passengerAgeEl.value) > 65){
         price = (price * 40 / 100);
     }
-     console.log(`Prezzo del biglietto: €${price.toFixed(2)}`);
+    outputFullNameEl.textContent = `Nome Completo: ${fullNameEl.value}`;
+    outputKmCounterEl.textContent = `Kilometri da percorrere: ${kmCounterEl.value}`;
+    outputPassengerAgeEl.textContent = `Età del passeggero: ${passengerAgeEl.value}`;
+    outputPriceEl.textContent = `Prezzo del biglietto: €${price.toFixed(2)}`;
 })
 

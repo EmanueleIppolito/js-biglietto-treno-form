@@ -8,6 +8,21 @@
 </head>
 
 <body>
+    <div>
+        <form id="ticket">
+            <input id="fullName" type="text" required placeholder="Nome Completo" pattern="[A-Za-zÀ-ÿ\s]+">
+            <input id="kmCounter" type="number" required placeholder="Kilometri da Percorrere">
+            <input id="passengerAge" type="number" required placeholder="Età del passeggero">
+            <button id="submit" type="submit">Calcola il prezzo</button>
+        </form>
+    </div>
+
+    <div id="output">
+        <p id="outputFullName"></p>
+        <p id="outputKmCounter"></p>
+        <p id="outputPassengerAge"></p>
+        <p id="outputPrice"></p>
+    </div>
 
 
     <script src="./main.js"></script>
